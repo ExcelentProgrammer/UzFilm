@@ -8,6 +8,8 @@ class HomeModel extends Connect
      * tranddagi kinolarni olish uchun funcsiya
      */
     public function TrendFilms()
+
+
     {
         $db = $this->con();
         $res = $db->prepare("SELECT * FROM `video` ORDER BY id DESC LIMIT 0,24");
@@ -15,7 +17,14 @@ class HomeModel extends Connect
         $res = $res->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
-
+    
+    /**
+     * Films
+     *
+     * @param  mixed $page
+     * @return void
+     * @author azamov samandar
+     */
     public function Films($page)
     {
         $db = $this->con();

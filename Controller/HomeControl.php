@@ -12,6 +12,7 @@ class HomeControl extends HomeModel
      * @author Azamov Samandar
      *
      */
+
     public function index()
     {
         $class1 = "";
@@ -34,6 +35,4 @@ class HomeControl extends HomeModel
 
         require ROOT_PATH . "/View/Home/index.php";
     }
-
-
 }
