@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0); //xatoliklarni ko'rsatmalik uchun
+error_reporting(0); //xatoliklarni ko'rsatmalik uchun
 const ROOT_PATH = __DIR__; // Index fayil manzilini aniqlash
 require "config/constant.php"; //constantalar
 require "config/session.php"; //sessiyalarni boshqarish
