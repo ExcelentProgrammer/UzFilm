@@ -1,10 +1,19 @@
 <?php
 
 
+/**
+ * menu
+ *
+ * @param  mixed $x
+ * @return void
+ * sahisalarni o'zgartirish uchun 
+ */
 function menu($x)
 {
     return "?menu=$x";
 }
+
+
 
 if ($_GET["menu"] == MENU_LOGOUT) {
 
@@ -16,24 +25,29 @@ if ($_GET["menu"] == MENU_LOGOUT) {
 
     echo "<script>window.location.replace('" . menu(MENU_HOME) . "')</script>";
 }
+
+
+
+
 /**
  * @return void
  * @author Azamov Samandar
+
  * router tizimi
  *
  */
+
+
+
 function route()
 {
     $menu = $_GET['menu'];
     if (isset($_GET[MENU_SEARCH]) and !$menu) {
         echo '<script>window.location.replace("?menu=' . MENU_HOME . '&' . MENU_SEARCH . '=' . $_GET[MENU_SEARCH] . '")</script>';
-
     } elseif (!empty($_POST['sub']) and $_POST['type'] == "register") {
         include ROOT_PATH . "/Controller/RegisterControl.php";
-
     } elseif (!empty($_POST['sub']) and $_POST['type'] == "login") {
         include ROOT_PATH . "/Controller/LoginControl.php";
-
     } else {
 
 
