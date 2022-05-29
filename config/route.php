@@ -36,9 +36,6 @@ if ($_GET["menu"] == MENU_LOGOUT) {
  * router tizimi
  *
  */
-
-
-
 function route()
 {
     $menu = $_GET['menu'];
