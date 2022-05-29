@@ -1,1 +1,2 @@
 ErrorDocument 404 http://127.0.0.1/myapp/uzfilm.cf/404.php
+php_value display_errors on
