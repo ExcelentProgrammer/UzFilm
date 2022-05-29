@@ -22,7 +22,6 @@ if ($_GET["menu"] == MENU_LOGOUT) {
     session_destroy();
     setcookie("id", null, -1, "/");
     setcookie("pass", null, -1, "/");
-
     echo "<script>window.location.replace('" . menu(MENU_HOME) . "')</script>";
 }
 
@@ -38,16 +37,17 @@ if ($_GET["menu"] == MENU_LOGOUT) {
  */
 function route()
 {
-    $menu = $_GET['menu'];
-    if (isset($_GET[MENU_SEARCH]) and !$menu) {
-        echo '<script>window.location.replace("?menu=' . MENU_HOME . '&' . MENU_SEARCH . '=' . $_GET[MENU_SEARCH] . '")</script>';
-    } elseif (!empty($_POST['sub']) and $_POST['type'] == "register") {
-        include ROOT_PATH . "/Controller/RegisterControl.php";
-    } elseif (!empty($_POST['sub']) and $_POST['type'] == "login") {
-        include ROOT_PATH . "/Controller/LoginControl.php";
-    } else {
+    if (!empty($_GET['menu'])) $menu = $_GET['menu'];
 
+    else $menu = null;
 
+    if (isset($_GET[MENU_SEARCH]) and !$menu) echo '<script>window.location.replace("?menu=' . MENU_HOME . '&' . MENU_SEARCH . '=' . $_GET[MENU_SEARCH] . '")</script>';
+
+    elseif (!empty($_POST['sub']) and $_POST['type'] == "register") include ROOT_PATH . "/Controller/RegisterControl.php";
+
+    elseif (!empty($_POST['sub']) and $_POST['type'] == "login") include ROOT_PATH . "/Controller/LoginControl.php";
+
+    else {
         switch ($menu) {
 
             case MENU_HOME:
@@ -90,7 +90,6 @@ function route()
                 $home = new VideoControl();
                 $home->index();
                 break;
-
             default:
                 echo '<script>window.location.replace("?menu=home")</script>';
                 break;
