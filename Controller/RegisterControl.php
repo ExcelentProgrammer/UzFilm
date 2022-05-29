@@ -1,7 +1,15 @@
 <?php
+
 /** @var array $_POST */
 require_once ROOT_PATH . "/Model/RegisterModel.php";
 $RegisterModel = new RegisterModel();
+
+
+/**
+ * ro'yhatdan o'tish tugmasini bosganda yani submit bo'lgana foydalanuvchi malumotlarini olish uchun 
+ * @author Azamov Samandar
+ */
+
 if (isset($_POST['sub'])) {
     $email = $_POST['email'];
     $res = $RegisterModel->emailInfo($email);
@@ -21,8 +29,6 @@ if (isset($_POST['sub'])) {
     } else {
         echo "<script>alert('Email oldin ishlatilgan')</script>";
         echo '<script>window.location.replace("?menu=' . MENU_REGISTER . '")</script>';
-
-
     }
 }
 
@@ -38,6 +44,4 @@ class RegisterControl
     {
         include ROOT_PATH . "/View/Register/index.php";
     }
-
-
 }
