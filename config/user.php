@@ -1,33 +1,22 @@
 <?php
+
 $db = new Connect();
 $db = $db->con();
-require_once ROOT_PATH."/Model/KabinetModel.php";
+require_once ROOT_PATH . "/Model/KabinetModel.php";
 $KabinerModel = new KabinetModel();
+if (!empty($_COOKIE['id']) and !infosession("id"))
+    newsession("id", $_COOKIE['id']);
+newsession("pass", $_COOKIE['pass']);
 if (infosession("id")) {
     $id = getsession("id");
     $res = $KabinerModel->UserInfo($id);
-
-    if ($res['pass'] == getsession("pass")) {
-
+    if (getsession("login") != 1)
         newsession("login", "1");
-        define("user_id", $res['id']);
-
-        define("ism", $res['first_name']);
-        define("pass", $res['pass']);
-        define("email", $res['email']);
-    } else {
-
-
-        session_destroy();
-        newsession("login", "0");
-        setcookie("id", null, -1, "/");
-        setcookie("pass", null, -1, "/");
-        echo "<script>window.location.replace('" . menu(MENU_HOME) . "')</script>";
-
-
-    }
-
+    define("user_id", $res['id']);
+    define("ism", $res['first_name']);
+    define("pass", $res['pass']);
+    define("email", $res['email']);
 } else {
-    newsession("login", "0");
 
+    newsession("login", "0");
 }

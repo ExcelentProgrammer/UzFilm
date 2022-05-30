@@ -2,22 +2,30 @@
 
 class VideoModel extends Connect
 {
-    function GetComments($video_id, $type)
+    function GetComments($video_id, $type,$start)
     {
         if ($type == "serial") {
             $db = $this->con();
-            $res = $db->prepare("SELECT * FROM serialcomments WHERE video_id=:video_id ORDER BY id DESC LIMIT 0, 10");
+            $res = $db->prepare("SELECT * FROM serialcomments WHERE video_id=:video_id ORDER BY id DESC LIMIT $start, 20");
             $res->execute([
                 ":video_id" => $video_id
             ]);
-            return $res->fetchAll(PDO::FETCH_ASSOC);
+            $res2 = $db->prepare("SELECT * FROM serialcomments WHERE video_id=:video_id");
+            $res2->execute([
+                ":video_id" => $video_id
+            ]);
+            return [$res->fetchAll(PDO::FETCH_ASSOC),$res2->rowCount()];
         } else {
             $db = $this->con();
-            $res = $db->prepare("SELECT * FROM  comments WHERE video_id=:video_id ORDER BY id DESC LIMIT 0, 10");
+            $res = $db->prepare("SELECT * FROM  comments WHERE video_id=:video_id ORDER BY id DESC LIMIT $start, 20");
             $res->execute([
                 ":video_id" => $video_id
             ]);
-            return $res->fetchAll(PDO::FETCH_ASSOC);
+            $res2 = $db->prepare("SELECT * FROM comments WHERE video_id=:video_id");
+            $res2->execute([
+                ":video_id" => $video_id
+            ]);
+            return [$res->fetchAll(PDO::FETCH_ASSOC),$res2->rowCount()];
         }
     }
     /**
@@ -86,7 +94,6 @@ class VideoModel extends Connect
      */
     public function GetVideo($id)
     {
-
         $db = $this->con();
         $res = $db->prepare("SELECT * FROM video WHERE id=:id");
         $res->execute([

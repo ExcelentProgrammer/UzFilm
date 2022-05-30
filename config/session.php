@@ -1,9 +1,7 @@
 <?php
 
 /**sessiya ishga tushurilgan yoki yo'q ekanligini aniqlash av ishga tushurilmagan bo'lsa ishga tushurish uchun */
-if (session_status() == 1) {
-    session_start();
-}
+session_start();
 
 
 /**

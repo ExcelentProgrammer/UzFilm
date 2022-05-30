@@ -9,7 +9,7 @@ if (isset($_POST['sub'])) {
 
 
         if ($res['pass'] == $_POST['pass']) {
-
+            
             newsession("id", $res['id']);
             newsession("pass", $res['pass']);
             setcookie("id", $res['id'], time() + (86400 * 365), "/");

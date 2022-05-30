@@ -24,10 +24,13 @@ class VideoControl extends VideoModel
 
             $this->AddComment($user_id, $video_id, $content, $_GET['type'], $vid);
         }
-
+        if (!empty($_GET['comment']))
+            $start = $_GET['comment'];
+        else
+            $start = "0";
         $saveInfo = $this->SaveVideoInfo(getsession("id"), $_GET['id']);
         $AllSerial = $this->GetAllSerial($vid);
-        $comments = $this->GetComments($_GET['id'], $_GET['type']);
+        $comments = $this->GetComments($_GET['id'], $_GET['type'], $start);
         $KabinetModel = new KabinetModel();
         require ROOT_PATH . "/View/Video/index.php";
     }

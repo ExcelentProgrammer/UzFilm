@@ -7,15 +7,15 @@
                     <!-- authorization form -->
                     <form class="sign__form" method="POST">
                         <a href="index.html" class="sign__logo">
-                            <h1>UzFilm</h1>
+                            <h1><?=APP_NAME?></h1>
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" name="email" class="sign__input" placeholder="Email">
+                            <input type="text" name="email" required oninvalid="this.setCustomValidity('Email bosh bo\'lishi mumkun emas')" oninput="this.setCustomValidity('')" class="sign__input" placeholder="Email">
                         </div>
 
                         <div class="sign__group">
-                            <input type="password" name="pass" class="sign__input" placeholder="Paro'l">
+                            <input type="password" name="pass" required oninvalid="this.setCustomValidity('Paro\'lni kiritmadingiz')" oninput="this.setCustomValidity('')"  class="sign__input" placeholder="Paro'l">
                         </div>
 
                         <div class="sign__group sign__group--checkbox">

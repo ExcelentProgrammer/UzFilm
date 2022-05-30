@@ -2,6 +2,7 @@
 
 class HomeModel extends Connect
 {
+    
     /**
      * @return array|false
      * @author Azamov Samandar

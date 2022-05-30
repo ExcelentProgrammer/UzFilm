@@ -6,7 +6,7 @@
 
 
                     <a href=<?= menu(MENU_HOME) ?> class="header__logo">
-                        <h1>UzFilm</h1>
+                        <h1><?=APP_NAME?></h1>
                     </a>
 
                     <ul class="header__nav">

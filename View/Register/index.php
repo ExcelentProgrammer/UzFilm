@@ -7,19 +7,19 @@
                     <!-- registration form -->
                     <form method="post" class="sign__form">
                         <a href="index.html" class="sign__logo">
-                            <h1>UzFilm</h1>
+                            <h1><?=APP_NAME?></h1>
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" name="name" class="sign__input" placeholder="Ism">
+                            <input type="text" name="name" required oninvalid="this.setCustomValidity('ismingizni kiriting')" oninput="this.setCustomValidity('')" class="sign__input" placeholder="Ism">
                         </div>
 
                         <div class="sign__group">
-                            <input type="email" name="email" class="sign__input" placeholder="elektron pochta (gmail)">
+                            <input type="email" name="email" required oninvalid="this.setCustomValidity('Email kiritilmadi')" oninput="this.setCustomValidity('')" class="sign__input" placeholder="elektron pochta (gmail)">
                         </div>
 
                         <div class="sign__group">
-                            <input type="password" name="pass" class="sign__input" placeholder="Paro'l">
+                            <input type="password" name="pass" required oninvalid="this.setCustomValidity('Paro\'lni kiriting')" oninput="this.setCustomValidity('')" class="sign__input" placeholder="Paro'l">
                         </div>
 
                         <input type="hidden" name="type" value="register">

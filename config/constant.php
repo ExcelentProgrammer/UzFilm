@@ -17,7 +17,7 @@ const MENU_VIDEO = "video";
 const MENU_LOGOUT = "logout";
 const MENU_SAVE = "save";
 const MENU_YORDAM = "yordam";
-
+const APP_DOMEN = "http://u.l";
 
 /**
  * malumotlar bazasi uchun sozlamalar
