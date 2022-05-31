@@ -59,8 +59,24 @@ $video_id = $video['id'];
                             </svg>
 
                             <a href=<?= $video["file_url"] ?> download=<?= $video["file_name"] ?>>Yuklab olish</a>
+                            <p style="color: green; cursor: pointer;" onclick="like()">
+                                <svg class="ml-5" xmlns="http://www.w3.org/2000/svg" style="width: 32px;height: 32px;" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M128 447.1V223.1c0-17.67-14.33-31.1-32-31.1H32c-17.67 0-32 14.33-32 31.1v223.1c0 17.67 14.33 31.1 32 31.1h64C113.7 479.1 128 465.6 128 447.1zM512 224.1c0-26.5-21.48-47.98-48-47.98h-146.5c22.77-37.91 34.52-80.88 34.52-96.02C352 56.52 333.5 32 302.5 32c-63.13 0-26.36 76.15-108.2 141.6L178 186.6C166.2 196.1 160.2 210 160.1 224c-.0234 .0234 0 0 0 0L160 384c0 15.1 7.113 29.33 19.2 38.39l34.14 25.59C241 468.8 274.7 480 309.3 480H368c26.52 0 48-21.47 48-47.98c0-3.635-.4805-7.143-1.246-10.55C434 415.2 448 397.4 448 376c0-9.148-2.697-17.61-7.139-24.88C463.1 347 480 327.5 480 304.1c0-12.5-4.893-23.78-12.72-32.32C492.2 270.1 512 249.5 512 224.1z" />
+                                </svg>
+                                <strong id="like">12</strong>
+                            </p>
+                            <p style="color:red;cursor: pointer;" onclick="dislike()">
+                                <svg class="ml-3 mt-1" style="width: 32px;height: 32px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M96 32.04H32c-17.67 0-32 14.32-32 31.1v223.1c0 17.67 14.33 31.1 32 31.1h64c17.67 0 32-14.33 32-31.1V64.03C128 46.36 113.7 32.04 96 32.04zM467.3 240.2C475.1 231.7 480 220.4 480 207.9c0-23.47-16.87-42.92-39.14-47.09C445.3 153.6 448 145.1 448 135.1c0-21.32-14-39.18-33.25-45.43C415.5 87.12 416 83.61 416 79.98C416 53.47 394.5 32 368 32h-58.69c-34.61 0-68.28 11.22-95.97 31.98L179.2 89.57C167.1 98.63 160 112.9 160 127.1l.1074 160c0 0-.0234-.0234 0 0c.0703 13.99 6.123 27.94 17.91 37.36l16.3 13.03C276.2 403.9 239.4 480 302.5 480c30.96 0 49.47-24.52 49.47-48.11c0-15.15-11.76-58.12-34.52-96.02H464c26.52 0 48-21.47 48-47.98C512 262.5 492.2 241.9 467.3 240.2z" />
+                                </svg>
+                                <strong id="dislike">3</strong>
 
+                            </p>
                         </div>
+
+
 
                         <!-- add .active class -->
                         <?php
@@ -76,12 +92,13 @@ $video_id = $video['id'];
 
 
                         ?>
-                                    <a href=<?= menu(MENU_SAVE) . "&id=" . $_GET['id'] ?> class="article__favorites" type="button">
+                                    <p style="cursor: pointer;" onclick="save()" id="saveadd" class="article__favorites" type="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
                                             <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
                                             <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
                                         </svg>
-                                        Saqlanganlarga qo'shish</a>
+                                        Saqlanganlarga qo'shish
+                                    </p>
                     </div>
                 <?php
                                 } else {
@@ -203,19 +220,19 @@ $video_id = $video['id'];
                         <div class="tab-content">
                             <!-- comments -->
                             <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
-                                <form action=<?= AllGets() ?> class="comments__form" method="POST">
+                                <!-- <form action=<?= AllGets() ?> class="comments__form" method="POST"> -->
                                     <div class="sign__group">
                                         <textarea id="text" name="content" required oninvalid="this.setCustomValidity('Comment Bosh bo\'lishi mumkun emas')" oninput="this.setCustomValidity('')" class="sign__textarea" placeholder="Commentariya qo'shish"></textarea>
                                     </div>
                                     <?php
                                     if (getsession("login") == "1") {
                                     ?>
-                                        <button type="submit" name="sub" class=" sign__btn">Yuborish</button>
+                                        <button type="button" name="sub" id="sendcomment" onclick="comment()" class=" sign__btn">Yuborish</button>
                                     <?php } else { ?>
                                         <a type="button" href=<?= menu(MENU_LOGIN) ?> name="sub" class=" sign__btn">Yuborish</a>
                                     <?php } ?>
-                                </form>
-                                <ul class="comments__list">
+                                <!-- </form> -->
+                                <ul id="commentlist" class="comments__list">
 
                                     <!-- comment -->
                                     <?php
@@ -290,7 +307,7 @@ $video_id = $video['id'];
                                                 if ($s != $row) {
 
                                                 ?>
-                                                    <a href=<?= AllGets() . "&comment=" . $start + 20 ?>>
+                                                    <a href=<?php echo AllGets() . "&comment=" . ($start + 20) ?>>
                                                         <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M13.1992 5.3645L0.75 5.3645" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                                                             <path d="M8.17822 0.602051L13.1993 5.36417L8.17822 10.1271" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
@@ -341,9 +358,52 @@ $video_id = $video['id'];
                         </div>
                     </div>
                 </div> -->
-                    
+
             </div>
         </div>
         <!-- end article -->
     </div>
 </section>
+<?php
+$user_id = getsession("id");
+$video_id = $vid;
+
+echo '
+<script>
+    function save(){
+        $("#saveadd").html("<p style=\'color:green;\'>Saqlanganlarga qo\'shildi</p>");
+        $.ajax({url:"config/NotRefresh.php?type=save&user_id=' . $user_id . '&video_id=' . $video_id . '"});
+    }
+</script>
+'; ?>
+
+<?php
+$user_id = getsession("id");
+$type = $_GET['type'];
+
+?>
+
+<script>
+    function like(){
+        var like = $("#like").html();
+        $("#like").html(like*1+1);
+    }
+    function dislike(){
+        var like = $("#dislike").html();
+        $("#dislike").html(like*1+1);
+    }
+
+    
+    function comment(){
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        var user_id = decodeURIComponent("<?php echo $user_id ?>");
+        var name = decodeURIComponent("<?php echo ism ?>");
+        var commentcontent = $("#text").val();
+        $("#text").val("");
+
+        $("#commentlist").html('<li class="comments__item"><div class="comments__autor"><img class="comments__avatar" src="Assets/img/avatar.svg" alt=""><span class="comments__name">'+name+'</span><span class="comments__time">'+dateTime+'</span></div><p class="comments__text">'+commentcontent+'</p></li>'+$("#commentlist").html());
+    }
+    </script>

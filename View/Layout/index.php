@@ -110,6 +110,7 @@
         </div>
     </footer>
     <!-- end footer -->
+    
     <script src="Assets/js/jquery-3.5.1.min.js"></script>
     <script src="Assets/js/bootstrap.bundle.min.js"></script>
     <script src="Assets/js/owl.carousel.min.js"></script>

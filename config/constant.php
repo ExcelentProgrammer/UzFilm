@@ -15,7 +15,6 @@ const MENU_FORGOT = "Forgot";
 const MENU_SEARCH = "qidiruv";
 const MENU_VIDEO = "video";
 const MENU_LOGOUT = "logout";
-const MENU_SAVE = "save";
 const MENU_YORDAM = "yordam";
 const APP_DOMEN = "http://u.l";
 

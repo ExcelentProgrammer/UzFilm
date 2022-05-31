@@ -79,11 +79,7 @@ function route()
             $home = new HomeControl();
             $home->index();
             break;
-        case MENU_SAVE:
-            require ROOT_PATH . "/Controller/SaveController.php";
-            $save = new SaveController();
-            $save->index();
-            break;
+        
         case MENU_KANBINET:
             require ROOT_PATH . "/Controller/KabinetControl.php";
             $home = new KabinetControl();
