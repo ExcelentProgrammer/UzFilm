@@ -8,7 +8,7 @@ if (isset($_POST['sub'])) {
     if (!empty($res)) {
 
 
-        if ($res['pass'] == $_POST['pass']) {
+        if ($res['pass'] == sha1($_POST['pass'])) {
             
             newsession("id", $res['id']);
             newsession("pass", $res['pass']);

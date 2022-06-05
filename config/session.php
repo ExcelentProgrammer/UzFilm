@@ -66,5 +66,5 @@ function infosession($x)
  */
 function getsession($x)
 {
-    return $_SESSION[$x];
+    return !empty($_SESSION[$x]) ? $_SESSION[$x] : "";
 }

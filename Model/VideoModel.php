@@ -41,7 +41,9 @@ class VideoModel extends Connect
     function AddComment($user_id, $video_id, $content, $type, $vid)
 
     {
+        
         if ($type == "serial") {
+            
             $db = $this->con();
             $res = $db->prepare("INSERT INTO serialcomments(user_id,video_id,content,create_at) VALUES(?,?,?,NOW())");
             $res->execute([
@@ -51,6 +53,7 @@ class VideoModel extends Connect
             ]);
             echo "<script>location.href='" . menu(MENU_VIDEO) . "&id=" . $video_id . "&video_id=" . $vid . "&type=serial'</script>";
         } else {
+
 
             $db = $this->con();
             $res = $db->prepare("INSERT INTO comments(user_id,video_id,content,create_at) VALUES(?,?,?,NOW())");
@@ -71,6 +74,7 @@ class VideoModel extends Connect
      */
     public function GetSerial($id)
     {
+       
         $db = $this->con();
         $res = $db->prepare("SELECT * FROM seriyal WHERE id=:id");
         $res->execute([

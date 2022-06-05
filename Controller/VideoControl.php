@@ -7,7 +7,7 @@ class VideoControl extends VideoModel
 {
     public function index()
     {
-        if ($_GET['type'] == "serial") {
+        if ((!empty($_GET['type']) ? $_GET['type']:"") == "serial") {
             $video = $this->GetSerial($_GET['id']);
             $video_type = "serial";
             $vid = $_GET['video_id'];
@@ -17,13 +17,7 @@ class VideoControl extends VideoModel
             $vid = $_GET['id'];
         }
 
-        if (isset($_POST['sub'])) {
-            $video_id = $_GET['id'];
-            $content = $_POST['content'];
-            $user_id = getsession('id');
-
-            $this->AddComment($user_id, $video_id, $content, $_GET['type'], $vid);
-        }
+       
         if (!empty($_GET['comment']))
             $start = $_GET['comment'];
         else

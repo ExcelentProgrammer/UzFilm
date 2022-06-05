@@ -1,0 +1,3 @@
+<script>
+    prompt('salom');
+</script>

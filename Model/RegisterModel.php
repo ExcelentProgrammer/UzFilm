@@ -27,6 +27,7 @@ class RegisterModel extends Connect
      */
     public function CreateUser($name, $email, $password)
     {
+        $password = sha1($password);
         $db = $this->con();
         $res = $db->prepare("INSERT INTO `users`(`first_name`, `pass`, `email`,`role`) VALUES(:name,:password,:email,:role)");
         $res->execute([

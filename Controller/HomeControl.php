@@ -22,7 +22,6 @@ class HomeControl extends HomeModel
         } else {
             $page = $_GET['page'];
         }
-        $page2 = $page + 30;
         if (empty($_GET['p'])) {
             $p = 0;
         } else {

@@ -17,7 +17,7 @@ const MENU_VIDEO = "video";
 const MENU_LOGOUT = "logout";
 const MENU_YORDAM = "yordam";
 const APP_DOMEN = "http://u.l";
-
+const MENU_CHAT = "chat";
 /**
  * malumotlar bazasi uchun sozlamalar
  *
@@ -25,4 +25,4 @@ const APP_DOMEN = "http://u.l";
 const DB_HOST = "localhost";
 const DB_USER = "root";
 const DB_PASS = "";
-const DB_NAME = "xvestuz_uzfilm";
+const DB_NAME = "uzfilm";

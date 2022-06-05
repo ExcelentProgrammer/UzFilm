@@ -25,7 +25,7 @@
                 <div class="profile">
                     <div class="profile__user">
                         <div class="profile__avatar">
-                            <img src="img/avatar.svg" alt="">
+                            <img src="Assets/img/avatar.svg" alt="">
                         </div>
                         <div class="profile__meta">
                             <h3><?= substr(ism, 0, 10) . "..." ?></h3>
@@ -128,8 +128,8 @@
                         <div class="sign__wrap">
                             <div class="row">
                                 <!-- details form -->
-                                <div class="col-1 col-lg-12">
-                                    <form method="post" class="sign__form sign__form--profile sign__form--first">
+                                <div class="col-12">
+                                    <form method="post"  class="sign__form sign__form--profile sign__form--first">
                                         <div class="row">
                                             <div class="col-12">
                                                 <h4 class="sign__title">Sozlamalar</h4>
@@ -139,7 +139,7 @@
                                                 <div class="sign__group">
                                                     <label class="sign__label" for="username">ism</label>
                                                     <input id="username" required oninvalid="this.setCustomValidity('Yangi Ismingizni kiriting')" oninput="this.setCustomValidity('')" type="text" name="name" class="sign__input"
-                                                           placeholder=<?= substr(ism, 0, 15) ?>>
+                                                           value=<?= substr(ism, 0, 15) ?>>
                                                 </div>
                                             </div>
 
@@ -147,7 +147,7 @@
                                                 <div class="sign__group">
                                                     <label class="sign__label" for="email">Email</label>
                                                     <input id="email" required oninvalid="this.setCustomValidity('Email kiritmadinggiz')" oninput="this.setCustomValidity('')" type="email" name="email" class="sign__input"
-                                                           placeholder=<?= email ?>>
+                                                    value=<?= email ?>>
                                                 </div>
                                             </div>
 
@@ -172,39 +172,3 @@
     </div>
 </div>
 <!-- end profile -->
-
-<!-- partners -->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="partners owl-carousel">
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/3docean-light-background.png" alt="">
-                    </a>
-
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/activeden-light-background.png" alt="">
-                    </a>
-
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/audiojungle-light-background.png" alt="">
-                    </a>
-
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/codecanyon-light-background.png" alt="">
-                    </a>
-
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/photodune-light-background.png" alt="">
-                    </a>
-
-                    <a href="#" class="partners__img">
-                        <img src="img/partners/themeforest-light-background.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end partners -->

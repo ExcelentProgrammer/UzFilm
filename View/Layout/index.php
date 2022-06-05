@@ -120,6 +120,9 @@
     <script src="Assets/js/jquery.magnific-popup.min.js"></script>
     <script src="Assets/js/plyr.min.js"></script>
     <script src="Assets/js/main.js"></script>
+    <script>
+        // console.clear();
+    </script>
 </body>
 
 </html>

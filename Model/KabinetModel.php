@@ -1,5 +1,4 @@
 <?php
-
 class KabinetModel extends Connect
 {
     /**
@@ -42,6 +41,12 @@ class KabinetModel extends Connect
      */
     public function UpdateProfile($user_id, $name, $email)
     {
+        $res = $this->UserInfo($user_id);
+        $email1 = $res['email'];
+       
+        if($email == $email1){
+            return true;
+        }
         $db = $this->con();
         $res = $db->prepare("SELECT * FROM users WHERE email=?");
         $res->execute([$email]);

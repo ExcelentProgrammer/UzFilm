@@ -12,7 +12,7 @@ if (empty($_GET['qidiruv'])) {
                     <br>
                     <h2 class="section__title">Trenddagi Kinolar</h2>
                 </div>
-                <div class="col-12">
+                <div class="col-11 ml-3" >
                     <div class="section__carousel-wrap">
                         <div class="section__carousel owl-carousel" id="subscriptions">
                             <?php
@@ -106,7 +106,8 @@ if (empty($_GET['qidiruv'])) {
                     $pageCount2 = $pageCount;
                     $pageCount = ceil($pageCount / 30);
                     $pageCount3 = ceil($pageCount / 5);
-
+                    $rr = $p*5;
+                    $pageCount -= $rr;
                     if ($pageCount > 5) {
                         $pageCount = 5;
                     }
@@ -182,6 +183,7 @@ if (empty($_GET['qidiruv'])) {
                 ?>
                 <?php
 
+
                 if ($p == 0) {
                     $a = 0;
                     $son = 1;
@@ -191,7 +193,7 @@ if (empty($_GET['qidiruv'])) {
                 }
 
                 for ($i = 1; $i <= $pageCount; $i++) {
-
+                   
                     if ($hpage + 1 == $son) {
                         $class1 = "active";
                     } else {
