@@ -44,13 +44,11 @@ class KabinetModel extends Connect
         $res = $this->UserInfo($user_id);
         $email1 = $res['email'];
        
-        if($email == $email1){
-            return true;
-        }
+        
         $db = $this->con();
         $res = $db->prepare("SELECT * FROM users WHERE email=?");
         $res->execute([$email]);
-        if ($res->rowCount() == 0) {
+        if ($res->rowCount() == 0 or $email == $email1) {
             $res = $db->prepare("UPDATE users SET first_name=:name,email=:email WHERE id=:user_id");
             $res->execute([
                 ":name" => $name,

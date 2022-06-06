@@ -72,8 +72,8 @@
                             <div class="footer__nav">
                                 <h6 class="footer__title">Admin</h6>
 
-                                <a href="#">Telagram</a>
-                                <a href="#">Tel: +998943990509</a>
+                                <a href="https://t.me/samandar_azamov">Telegram</a>
+                                <a href="tel: +998943990509">Tel: +998943990509</a>
 
                             </div>
                         </div>

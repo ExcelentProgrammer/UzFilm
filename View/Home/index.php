@@ -163,11 +163,12 @@ if (empty($_GET['qidiruv'])) {
                 <?php
                 /** @var integer $p */
                 if ($p != 0) {
-
+                    $pg = (int) $p;
+                    $pg = $pg-1;
 
                     ?>
                     <li>
-                        <a href=<?= menu(MENU_HOME) . "&page=" . $page . "&p=" . $p - 1 ?>>
+                        <a href=<?= menu(MENU_HOME) . "&page=" . $page . "&p=" . $pg?>>
 
                             <svg width="14" height="11" viewBox="0 0 14 11" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -211,10 +212,11 @@ if (empty($_GET['qidiruv'])) {
 
                 if ($pageCount3 > $pp) {
 
-
+                    $pg = (int) $p;
+                    $pg = $pg+1;
                     ?>
                     <li>
-                        <a href=<?= menu(MENU_HOME) . "&page=" . $page . "&p=" . $p + 1 ?>>
+                        <a href=<?= menu(MENU_HOME) . "&page=" . $page . "&p=" . $pg ?>>
                             <svg width="14" height="11" viewBox="0 0 14 11" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.1992 5.3645L0.75 5.3645" stroke-width="1.2" stroke-linecap="round"

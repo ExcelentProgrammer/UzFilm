@@ -54,7 +54,7 @@
                         <?php
                         } else {
 
-                        }
+                        
                         ?>
                             <a href=<?= menu(MENU_KANBINET) ?> class="header__user">
                                 <span style="margin:0px 5px 0px 5px;"><?= substr(ism, 0, 10) . "..." ?></span>
@@ -65,8 +65,9 @@
 
                             </a>
 
+
                         <?php
-                        
+                        }
                         ?>
 
                     </div>
