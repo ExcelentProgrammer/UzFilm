@@ -16,7 +16,9 @@ if (infosession("id")) {
     $user_first_name = $res['first_name'];
     $pass = $res['pass'];
     $email = $res['email'];
-    
+    $AVATAR = $res['avatar'];
+
+    define("AVATAR" , $AVATAR);
     define("user_id", $user_id);
     define("ism", $user_first_name);
     define("pass", $pass);

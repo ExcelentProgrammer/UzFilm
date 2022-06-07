@@ -1,1 +1,1 @@
-ErrorDocument 404 http://127.0.0.1/myapp/uzfilm.loc/404.php
+ErrorDocument 404 http://127.0.0.1/myapp/uzfilm.local/404.php

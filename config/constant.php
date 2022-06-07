@@ -12,7 +12,7 @@ const MENU_HOME = "home";
 const MENU_LOGIN = "login";
 const MENU_REGISTER = "register";
 const MENU_FORGOT = "Forgot";
-const MENU_SEARCH = "qidiruv";
+const MENU_SEARCH = "search";
 const MENU_VIDEO = "video";
 const MENU_LOGOUT = "logout";
 const MENU_YORDAM = "yordam";
@@ -23,6 +23,6 @@ const MENU_CHAT = "chat";
  *
 */
 const DB_HOST = "localhost";
-const DB_USER = "root";
-const DB_PASS = "";
-const DB_NAME = "uzfilm";
+const DB_USER = "uzfil_m";
+const DB_PASS = "samandar001@";
+const DB_NAME = "uzfilm_db";

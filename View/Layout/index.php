@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="Assets/css/plyr.css">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="Assets/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="Assets/icon/favicon-32x32.png">
 
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Dmitry Volkov">
+    <meta name="description" content="Tarjima kinolar">
+    <meta name="keywords" content=<?= APP_NAME ?>>
+    <meta name="author" content="Azamov Samandar">
     <title><?= APP_NAME ?></title>
     <style>
         .section--head-fixed {
@@ -81,9 +81,9 @@
                         <div class="col-6">
                             <div class="footer__nav">
                                 <h6 class="footer__title">Telegarm</h6>
-                                <a href="#">Kanal</a>
-                                <a href="#">Bot</a>
-                                <a href="#">Guruh</a>
+                                <a href="https://t.me/mycoders1">Kanal</a>
+                                <a href="https://t.me/uzfilm_robot">Bot</a>
+                                <a href="https://t.me/mycoders11">Guruh</a>
                             </div>
                         </div>
                     </div>
@@ -92,9 +92,9 @@
                 <div class="col-6 col-md-4 col-lg-3 col-xl-2 order-2 order-lg-3 order-md-4 order-xl-4">
                     <h6 class="footer__title">Yordam</h6>
                     <div class="footer__nav">
-                        <a href="#">Accontga kirish</a>
-                        <a href="#">Account Ochish</a>
-                        <a href="#">Account malumotlarini o'zgartirish</a>
+                        <a href=<?= menu(MENU_LOGIN) ?>>Accontga kirish</a>
+                        <a href=<?= menu(MENU_LOGOUT) ?>>Account Ochish</a>
+                        <a href=<?= menu(MENU_KANBINET) ?>>Account malumotlarini o'zgartirish</a>
                     </div>
                 </div>
             </div>
@@ -120,9 +120,26 @@
     <script src="Assets/js/jquery.magnific-popup.min.js"></script>
     <script src="Assets/js/plyr.min.js"></script>
     <script src="Assets/js/main.js"></script>
+
     <script>
-        // console.clear();
-    </script>
+    $(document).ready(function() {
+        // Prepare the preview for profile picture
+        $("#wizard-picture").change(function() {
+            readURL(this);
+        });
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 </body>
 
 </html>

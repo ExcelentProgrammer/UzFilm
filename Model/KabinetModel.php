@@ -38,14 +38,51 @@ class KabinetModel extends Connect
      * @author Azamov Samandar
      * Foydalanuvchi ismi va elektron pochta manzilini o'zgartirish uchun
      *
+     */    
+    /**
+     * rand_string
+     *
+     * @param  mixed $length
+     * @return void
+     * avatar uchun nom random qilib beradi
      */
+    public function rand_string($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
     public function UpdateProfile($user_id, $name, $email)
     {
+        $db = $this->con();
+        $file = $_FILES["avatar"];
+        $file_name = $this->rand_string().".jpg";
+        $tmp_name = $file['tmp_name'];
+        $error = $file['error'];
+        $type = $file['type'];
+        $type = explode("/", $type)[0];
+        if ($type == "image" and $error == 0) {
+            $res = $db->prepare("SELECT * FROM users WHERE id=:user_id");
+            $res->execute([':user_id'=>$user_id]);
+            $res = $res->fetchAll(PDO::FETCH_ASSOC);
+            $a = $res[0]['avatar'];
+            if($a != "avatar.cvg"){
+              
+                unlink("Assets/img/avatars/".$a);
+            }
+            move_uploaded_file($tmp_name,"Assets/img/avatars/".$file_name);
+            $res = $db->prepare("UPDATE users SET avatar=:avatar WHERE id=:user_id");
+            $res->execute([':avatar'=>$file_name,":user_id"=>$user_id]);
+        }
+
         $res = $this->UserInfo($user_id);
         $email1 = $res['email'];
-       
-        
-        $db = $this->con();
+
+
         $res = $db->prepare("SELECT * FROM users WHERE email=?");
         $res->execute([$email]);
         if ($res->rowCount() == 0 or $email == $email1) {
@@ -59,7 +96,7 @@ class KabinetModel extends Connect
                 return true;
             else
                 return false;
-        }else{
+        } else {
             return false;
         }
     }

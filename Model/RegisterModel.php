@@ -29,11 +29,12 @@ class RegisterModel extends Connect
     {
         $password = sha1($password);
         $db = $this->con();
-        $res = $db->prepare("INSERT INTO `users`(`first_name`, `pass`, `email`,`role`) VALUES(:name,:password,:email,:role)");
+        $res = $db->prepare("INSERT INTO `users`(`first_name`, `pass`, `email`,`avatar`,`role`) VALUES(:name,:password,:email,:avatar,:role)");
         $res->execute([
             ":name" => $name,
             ":password" => $password,
             ":email" => $email,
+            ":avatar"=>"avatar.svg",
             ":role" => "user",
         ]);
         $res = $db->prepare("SELECT * FROM `users` WHERE id=?");

@@ -15,6 +15,7 @@ class HomeControl extends HomeModel
 
     public function index()
     {
+        $qidiruv = "";
         $class1 = "";
 
         if (empty($_GET['page'])) {
@@ -28,9 +29,17 @@ class HomeControl extends HomeModel
             $p = $_GET['p'];
         }
         $tfilm = $this->TrendFilms();
+        if(empty($_GET[MENU_SEARCH])){
+            $videolar = $this->Films($page);
+            $pageCount = $this->FilmsCount();
+        }else{
+            $videolar = $this->Search($_GET[MENU_SEARCH],$page);
+            $pageCount = $this->SearchCount($_GET[MENU_SEARCH]);
+            $qidiruv = "&".MENU_SEARCH."=".$_GET[MENU_SEARCH];
+            $videolar = $videolar;
+           
 
-        $videolar = $this->Films($page);
-        $pageCount = $this->FilmsCount();
+        }
 
         require ROOT_PATH . "/View/Home/index.php";
     }

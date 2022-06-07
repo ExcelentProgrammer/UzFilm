@@ -60,7 +60,7 @@ if ($_GET["menu"] == MENU_LOGOUT) {
  */
 $status = "on";
 
-if (isset($_GET[MENU_SEARCH]) and !$menu) echo '<script>window.location.replace("?menu=' . MENU_HOME . '&' . MENU_SEARCH . '=' . $_GET[MENU_SEARCH] . '")</script>';
+if (!empty($_GET[MENU_SEARCH]) and empty($_GET['menu'])) echo '<script>window.location.replace("?menu=' . MENU_HOME . '&' . MENU_SEARCH . '=' . $_GET[MENU_SEARCH] . '")</script>';
 
 elseif (!empty($_POST['sub']) and $_POST['type'] == "register") include ROOT_PATH . "/Controller/RegisterControl.php";
 

@@ -169,7 +169,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background: url(http://asilmedia.tv/404/bg.jpg);
+            background: url(Assets/img/category/bg.jpg);
             background-repeat: repeat;
         }
 
@@ -253,7 +253,7 @@
 
 <div class="error-block">
     <div class="error-inner flx flx-column justify-content-center align-items-center">
-        <img src="http://asilmedia.tv/404/404.png" alt=""/>
+        <img src="Assets/img/category/404.png" alt=""/>
 
         <h1 class="title"><span>Kechirasiz!!!</span> Siz So'rayotgan Sahifa topilmadi!</h1>
         <p class="text">Siz mavjud bo'lmagan sahifaga kirmoqchisiz iltimos orqaga qayting!</p>

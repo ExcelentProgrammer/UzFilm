@@ -231,12 +231,12 @@ $video_id = $video['id'];
 
                                     ?>
                                         <li class="comments__item">
-                                            <div class="comments__autor">
-                                                <img class="comments__avatar" src="Assets/img/avatar.svg" alt="">
+                                            <div class="comments__autor" >
+                                                <img style="width:50px; height: 50px;" class="comments__avatar" src=<?= "Assets/img/avatars/".$user['avatar'] ?> alt="">
                                                 <span class="comments__name"><?= $user['first_name'] ?></span>
                                                 <span class="comments__time"><?= $comment['create_at'] ?></span>
                                             </div>
-                                            <p class="comments__text"><?= $comment['content'] ?></p>
+                                            <p class="comments__text"><?= substr($comment['content'],0,1000) ?></p>
 
                                         </li>
                                     <?php
@@ -373,6 +373,7 @@ include_once "./Model/KabinetModel.php";
 $user = new KabinetModel();
 $UserInfo = $user->UserInfo($user_id);
 $name = $UserInfo['first_name'];
+$AVATAR = $UserInfo['avatar'];
 
 
 ?>
@@ -383,6 +384,7 @@ $name = $UserInfo['first_name'];
     var video_id = decodeURIComponent("<?php echo $_GET['id'] ?>");
     var type = decodeURIComponent("<?php echo $type; ?>");
     var vid = decodeURIComponent("<?php echo $vid; ?>");
+    var avatar = decodeURIComponent("<?php echo $AVATAR ?>");
 </script>
 
-<script src="View/Video/index.js"></script>
+<script src="View/Video/index.js?v=1.0.1a"></script>
